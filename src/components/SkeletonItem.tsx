@@ -59,7 +59,7 @@ export const SkeletonItem = ({style}: SkeletonItemProps) => {
 };
 
 const styles = StyleSheet.create({
-  default: {height: '100%', width: '100%'},
+  default: {height: '100%'},
   container: {
     backgroundColor: '#e0e0e0',
     overflow: 'hidden',
