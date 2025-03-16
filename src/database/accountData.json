@@ -1,0 +1,90 @@
+{
+  "ok": true,
+  "data": {
+    "amountAvailable": 2000000,
+    "box": {
+      "amount": 31000,
+      "profit": 850
+    },
+    "transactions": [
+      {
+        "id": 1,
+        "place": "Davivienda",
+        "amount": 26146,
+        "date": "February 11, 1995 18:14:34"
+      },
+      {
+        "id": 2,
+        "place": "Bancolombia",
+        "amount": 44374,
+        "date": "April 12, 1995 20:40:21"
+      },
+      {
+        "id": 3,
+        "place": "Bancolombia",
+        "amount": 45939,
+        "date": "July 28, 1995 12:50:52"
+      },
+      {
+        "id": 4,
+        "place": "Davivienda",
+        "amount": 12248,
+        "date": "November 08, 1995 00:50:49"
+      },
+      {
+        "id": 5,
+        "place": "Banco de Bogotá",
+        "amount": 45171,
+        "date": "June 17, 1995 19:41:34"
+      },
+      {
+        "id": 6,
+        "place": "Bancolombia",
+        "amount": 45194,
+        "date": "April 13, 1995 09:58:20"
+      },
+      {
+        "id": 7,
+        "place": "Banco Popular",
+        "amount": 14004,
+        "date": "December 04, 1995 02:15:41"
+      },
+      {
+        "id": 8,
+        "place": "Banco de Bogotá",
+        "amount": 24815,
+        "date": "December 10, 1995 01:08:39"
+      },
+      {
+        "id": 9,
+        "place": "Bancolombia",
+        "amount": 43822,
+        "date": "May 09, 1995 04:39:05"
+      },
+      {
+        "id": 10,
+        "place": "Banco de Bogotá",
+        "amount": 11068,
+        "date": "April 15, 1995 00:05:17"
+      },
+      {
+        "id": 11,
+        "place": "Banco de Bogotá",
+        "amount": 11068,
+        "date": "April 15, 1995 00:05:17"
+      },
+      {
+        "id": 12,
+        "place": "Banco de Bogotá",
+        "amount": 11068,
+        "date": "April 15, 1995 00:05:17"
+      },
+      {
+        "id": 13,
+        "place": "Banco de Bogotá",
+        "amount": 11068,
+        "date": "April 15, 1995 00:05:17"
+      }
+    ]
+  }
+}
