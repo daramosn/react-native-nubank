@@ -14,8 +14,10 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import {SkeletonItem} from '../components/SkeletonItem';
 import {colors} from '../config/theme/app-theme';
 import accountData from '../database/accountData.json';
-import type {AccountDetails} from '../types/accountData';
+import type {AccountDetails, Transaction} from '../types/accountData';
 import {StackActions, useNavigation} from '@react-navigation/native';
+import {formatToCOP} from '../utilities/formatToCOP';
+import {formatDate} from '../utilities/formatDate';
 
 export const AccountScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -23,9 +25,14 @@ export const AccountScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigator = useNavigation();
 
-  const placeholderTransactions = Array.from({length: 3}).map((_, index) => ({
-    id: `ph-${index}`,
-  }));
+  const placeholderTransactions: Transaction[] = Array.from({length: 5}).map(
+    (_, index) => ({
+      id: index, // number instead of string
+      place: '',
+      date: '',
+      amount: 0,
+    }),
+  );
 
   const handleGoBack = () => {
     navigator.dispatch(StackActions.pop());
@@ -50,7 +57,9 @@ export const AccountScreen = () => {
         <Text style={styles.availableMessage}>Saldo disponible</Text>
         {isLoading && <SkeletonItem style={styles.availableAmountSkeleton} />}
         {!isLoading && (
-          <Text style={styles.availableAmount}>{data?.amountAvailable}</Text>
+          <Text style={styles.availableAmount}>
+            {formatToCOP(data?.amountAvailable)}
+          </Text>
         )}
       </View>
 
@@ -64,10 +73,14 @@ export const AccountScreen = () => {
           )}
           {!isLoading && (
             <>
-              <Text style={styles.pocketInfoAmount}>$ 31.000</Text>
+              <Text style={styles.pocketInfoAmount}>
+                {formatToCOP(data.box.amount)}
+              </Text>
               <View style={styles.pocketInfoProfit}>
                 <Icon name="arrow-up" size={24} color={colors.green} />
-                <Text style={styles.pocketInfoProfitNumber}>$ 750</Text>
+                <Text style={styles.pocketInfoProfitNumber}>
+                  {formatToCOP(data.box.profit)}
+                </Text>
               </View>
             </>
           )}
@@ -158,9 +171,13 @@ export const AccountScreen = () => {
                 <Text style={styles.transactionDetails}>
                   You paid in {item.place}
                 </Text>
-                <Text style={styles.transactionDate}>{item.date}</Text>
+                <Text style={styles.transactionDate}>
+                  {formatDate(item.date)}
+                </Text>
               </View>
-              <Text style={styles.transactionAmount}>{item.amount}</Text>
+              <Text style={styles.transactionAmount}>
+                {formatToCOP(item.amount)}
+              </Text>
             </View>
           );
         }}
