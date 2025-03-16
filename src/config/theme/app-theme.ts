@@ -7,6 +7,8 @@ export const colors = {
 
   gray: '#6a6a6a',
   lightGray: '#eeeeee',
+
+  green: '#0C7A3A',
 };
 
 export const global = StyleSheet.create({});
