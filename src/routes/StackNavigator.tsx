@@ -20,7 +20,7 @@ export const StackNavigator = () => {
       <Stack.Screen
         name="Account"
         component={AccountScreen}
-        options={{headerShadowVisible: false}}
+        options={{headerShadowVisible: true, headerShown: false}}
       />
     </Stack.Navigator>
   );
