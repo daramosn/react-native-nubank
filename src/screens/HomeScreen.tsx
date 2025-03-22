@@ -6,6 +6,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 import {type RootStackParams} from '../routes/StackNavigator';
 import {colors} from '../config/theme/app-theme';
+import {Button} from 'react-native-paper';
 
 export const HomeScreen = () => {
   const navigation = useNavigation<NavigationProp<RootStackParams>>();
@@ -33,7 +34,7 @@ export const HomeScreen = () => {
               <Text style={styles.name_text}>Hello, Diego</Text>
             </View>
           </View>
-          <View style={styles.savings}>
+          <View style={styles.section}>
             <Pressable style={styles.info} onPress={navigateTo}>
               <View style={styles.info_details}>
                 <View style={styles.info_detailsText}>
@@ -48,23 +49,61 @@ export const HomeScreen = () => {
                 <Icon name="chevron-forward-outline" size={24} />
               </View>
             </Pressable>
-            <View style={styles.accountActions}>
-              <View style={styles.accountButton}>
-                <View style={styles.accountIcon}>
+            <View style={styles.actions}>
+              <View style={styles.actionsButton}>
+                <View style={styles.actionsIcon}>
                   <Icon name="wallet-outline" size={24} />
                 </View>
-                <Text style={styles.accountText}>Depositar</Text>
+                <Text style={styles.actionsText}>Depositar</Text>
               </View>
-              <View style={styles.accountButton}>
-                <View style={styles.accountIcon}>
+              <View style={styles.actionsButton}>
+                <View style={styles.actionsIcon}>
                   <Icon name="paper-plane-outline" size={24} />
                 </View>
-                <Text style={styles.accountText}>Enviar</Text>
+                <Text style={styles.actionsText}>Enviar</Text>
+              </View>
+              <View style={styles.actionsButton}>
+                <View style={styles.actionsIcon}>
+                  <Icon name="key-outline" size={24} />
+                </View>
+                <Text style={styles.actionsText}>Tus llaves</Text>
               </View>
             </View>
             <View style={styles.details}>
               <Icon name="newspaper-outline" size={16} />
               <Text style={styles.detailsText}>Detalles de mi cuenta</Text>
+            </View>
+          </View>
+
+          <View style={styles.section}>
+            <Pressable style={styles.info} onPress={navigateTo}>
+              <View style={styles.info_details}>
+                <View style={styles.info_detailsText}>
+                  <Text style={styles.info_detailsTitle}>
+                    Tarjeta de crédito
+                  </Text>
+                </View>
+                <Icon name="chevron-forward-outline" size={24} />
+              </View>
+            </Pressable>
+            <View style={styles.debt}>
+              <Text style={styles.debtTitle}>Lo que debes de tu moradita</Text>
+              <Text style={styles.debtAmount}>$1.200.234,67</Text>
+            </View>
+            <View style={styles.payment}>
+              <Text style={styles.paymentMin}>Pago mínimo $1.033.298,75</Text>
+              <View style={styles.paymentButtons}>
+                <Button style={styles.paymentPay} mode="contained">
+                  Pagar
+                </Button>
+                <Button style={styles.paymentManage} mode="contained-tonal">
+                  Gestionar deuda
+                </Button>
+              </View>
+            </View>
+            <View style={styles.details}>
+              <Icon name="card-outline" size={16} />
+              <Text style={styles.detailsText}>Mis tarjetas</Text>
             </View>
           </View>
         </View>
@@ -107,7 +146,7 @@ const styles = StyleSheet.create({
     color: 'white',
   },
 
-  savings: {borderBottomWidth: 1, borderColor: colors.lightGray},
+  section: {borderBottomWidth: 1, borderColor: colors.lightGray},
 
   info: {padding: 16},
   info_details: {flexDirection: 'row', gap: 8},
@@ -116,14 +155,31 @@ const styles = StyleSheet.create({
   info_detailsAmount: {fontWeight: 600, fontSize: 24},
   info_detailsMessage: {marginTop: 12, fontSize: 15, color: colors.gray},
 
-  accountActions: {flexDirection: 'row', gap: 16, padding: 16},
-  accountButton: {alignItems: 'center'},
-  accountIcon: {
+  actions: {flexDirection: 'row', gap: 16, padding: 16},
+  actionsButton: {alignItems: 'center'},
+  actionsIcon: {
     padding: 22,
     backgroundColor: colors.lightGray,
     borderRadius: 50,
   },
-  accountText: {fontSize: 16, fontWeight: 700, marginTop: 8},
+  actionsText: {fontSize: 16, fontWeight: 700, marginTop: 8},
+
+  debt: {
+    paddingInline: 16,
+  },
+  debtTitle: {
+    fontSize: 18,
+  },
+  debtAmount: {
+    fontSize: 20,
+    fontWeight: 700,
+  },
+
+  payment: {padding: 16, gap: 16},
+  paymentMin: {color: colors.purple},
+  paymentButtons: {flexDirection: 'row', gap: 8},
+  paymentPay: {backgroundColor: colors.purple},
+  paymentManage: {backgroundColor: colors.lightGray},
 
   details: {
     margin: 16,
