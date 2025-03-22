@@ -25,7 +25,7 @@ export const AccountScreen = () => {
   const [isLoading, setIsLoading] = useState(true);
   const navigator = useNavigation();
 
-  const placeholderTransactions: Transaction[] = Array.from({length: 5}).map(
+  const placeholderTransactions: Transaction[] = Array.from({length: 3}).map(
     (_, index) => ({
       id: index, // number instead of string
       place: '',
@@ -46,13 +46,8 @@ export const AccountScreen = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const renderAccountHeader = () => (
+  const renderAccountInfo = () => (
     <View style={styles.accountScreen}>
-      <View style={styles.navigationHeader}>
-        <Pressable onPress={handleGoBack}>
-          <Icon name="chevron-back" size={24} />
-        </Pressable>
-      </View>
       <View style={styles.available}>
         <Text style={styles.availableMessage}>Saldo disponible</Text>
         {isLoading && <SkeletonItem style={styles.availableAmountSkeleton} />}
@@ -139,6 +134,11 @@ export const AccountScreen = () => {
   return (
     <SafeAreaView style={styles.safe}>
       <StatusBar barStyle={'light-content'} />
+      <View style={styles.navigationHeader}>
+        <Pressable onPress={handleGoBack}>
+          <Icon name="chevron-back" size={24} />
+        </Pressable>
+      </View>
       <SectionList
         style={styles.section}
         sections={[
@@ -181,7 +181,7 @@ export const AccountScreen = () => {
             </View>
           );
         }}
-        ListHeaderComponent={renderAccountHeader}
+        ListHeaderComponent={renderAccountInfo}
         renderSectionHeader={renderHistoryHeader}
         stickySectionHeadersEnabled={true}
       />
@@ -208,6 +208,7 @@ const styles = StyleSheet.create({
     padding: 16,
     flexDirection: 'row',
     justifyContent: 'space-between',
+    backgroundColor: 'white',
   },
 
   available: {padding: 16, paddingHorizontal: 24},
